@@ -51,21 +51,6 @@ export default function FirstAdmin() {
     "http://vsegda-pomnim.com/uploads/posts/2022-04/1650916178_25-vsegda-pomnim-com-p-krasivie-peizazhi-gor-foto-32.jpg ",
   ];
   const [value, setValue] = useState("");
-  const [categories, setCategories] = useState([]);
-  const [collections, setCollections] = useState([]);
-  const [collection, setCollection] = useState({});
-  const http = "http://127.0.0.1:8000/"
-  //Получение категорий
-  const { refetch: refetchCategories } = useQuery({
-    queryKey: ["getCategories"],
-    queryFn: async () => {
-      return await axios.get(`${http}category/`);
-    },
-    onSuccess: (data) => {
-      console.log(data);
-      setCategories(data);
-    },
-  });
   //Отправка Категорий
   const { mutate: createCategory, isLoading: isPostCategoryLoading } =
     useMutation({
@@ -76,38 +61,6 @@ export default function FirstAdmin() {
       onSuccess: () => refetchCategories(),
     });
 
-  //Получение коллекций
-  const { refetch: refetchCollections, isLoading: isGetCollectionsLoading } =
-    useQuery({
-      queryKey: ["getCollections"],
-      queryFn: async () => {
-        return await axios.get(`${http}collection/`);
-      },
-      onSuccess: (data) => {
-        setCollections(data);
-      },
-    });
-  //Получить коллецию
-  const { refetch: refetchCollection, isLoading: isGetCollectionLoading } =
-    useQuery({
-      queryKey: ["getCollection"],
-      queryFn: async (collection_id) => {
-        return await axios.get(`${http}collection/${collection_id}`);
-      },
-      onSuccess: (data) => {
-        setCollection(data);
-      },
-      enabled: false,
-    });
-  //Отправка коллекции
-  const { mutate: createCollection, isLoading: isPostCollectionLoading } =
-    useMutation({
-      mutationKey: "createCollection",
-      mutationFn: async (body) => {
-        return await axios.post(`${http}collection/`, body);
-      },
-      onSuccess: () => refetchCollections(),
-    });
   return (
     <>
       <div className="content_admin">
