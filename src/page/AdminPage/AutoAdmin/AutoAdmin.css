@@ -1,0 +1,39 @@
+.card{
+background-color: #887b9e1e;
+width: 343px;
+height: 103px;
+border-radius: 16px;
+border: 1px solid #ae88f1b2;
+box-sizing: border-box;
+margin-top: 240px;
+margin-left: 16px;
+}
+
+.card > p{
+    padding-left: 33px;
+}
+
+.button {
+    cursor: pointer;
+    margin-top: 105px;
+    margin-left: 16px;
+    width: 343px;
+    height: 47px;
+    padding: 0px 8px;
+    border: 0;
+    box-sizing: border-box;
+    border-radius: 16px;
+    background-color: #ae88f1b2;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 21px;
+    outline: none;
+  }
+
+
+.text {
+    font-weight: 500;
+    line-height: 16px;
+    text-align: center;
+}

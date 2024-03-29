@@ -1,0 +1,27 @@
+.store{
+    border-radius: 50%;
+    background-color: aqua;
+    width: 53px;
+    height: 53px;
+
+}
+
+header{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    overflow: scroll;
+  
+}
+
+.block_header{
+    flex-direction: column;
+    text-align: center;
+   
+}
+
+
+.text{
+    text-decoration: none;
+    color: #030303;
+}

@@ -1,0 +1,16 @@
+.photo{
+    width: 100%;
+    background: #000;
+    border-radius: 8px;
+
+}
+.photo_position{
+    position: relative;
+    display: block;
+}
+.svg{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 10;
+}
