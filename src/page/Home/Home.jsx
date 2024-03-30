@@ -1,42 +1,56 @@
-import React from "react";
-import Header from "../../components/header/Header";
-import Photo from "../../components/photo/Photo";
+import React from 'react';
+import Header from '../../components/header/Header';
+import Photo from '../../components/photo/Photo';
 
 export default function Home() {
   const position = [
     {
-      title: "Завтрак",
-      color: "#ae88f1",
+      title: 'Завтрак',
+      color: '#ae88f1',
     },
     {
-      title: "Обед",
-      color: "#c3f2cb",
+      title: 'Обед',
+      color: '#c3f2cb',
     },
     {
-      title: "Ужин",
-      color: "#ffcc00",
-    },
-
-    {
-      title: "Гастро",
-      color: "#4cd964",
+      title: 'Ужин',
+      color: '#ffcc00',
     },
 
     {
-      title: "Алк",
-      color: "#ff2d55",
+      title: 'Гастро',
+      color: '#4cd964',
+    },
+
+    {
+      title: 'Алк',
+      color: '#ff2d55',
+    },
+    {
+      title: 'Алк',
+      color: '#ff2d55',
+    },
+    {
+      title: 'Алк',
+      color: '#ff2d55',
+    },
+    {
+      title: 'Алк',
+      color: '#ff2d55',
     },
   ];
   const photo = [
-    "https://get.pxhere.com/photo/man-person-girl-woman-camera-photography-portrait-spring-red-lens-color-autumn-canon-romance-season-taking-photo-photograph-beauty-emotion-photo-shoot-portrait-photography-1169775.jpg",
-    "https://ogorodniku.com/uploads/posts/2023-01/1674192794_ogorodniku-com-p-peizazhi-prirodi-foto-1.jpg",
-    "https://urgi-stv.ru/wp-content/uploads/2/c/a/2ca07ff0390ccfd7fc4392f6c5416bbc.jpeg",
-    "https://img2.akspic.ru/attachments/originals/1/3/9/8/2/128931-flora-peyzash-okruzhayushchaya_sreda-gora-prirodnyj_landshaft-3840x2400.jpg",
-    "https://cdt-khibiny.ru/wp-content/uploads/2022/02/fotokross-molodye-kadry.jpg",
-    "https://images.hdqwalls.com/download/alberta-canada-4i-3840x2400.jpg",
-    "https://urgi-stv.ru/wp-content/uploads/e/3/3/e33601cff70ac629ed2e0c140171ac6a.jpeg",
-    "https://get.pxhere.com/photo/landscape-mountain-camera-photography-bicycle-dslr-vehicle-taking-photo-tripod-965509.jpg",
-    "http://vsegda-pomnim.com/uploads/posts/2022-04/1650916178_25-vsegda-pomnim-com-p-krasivie-peizazhi-gor-foto-32.jpg ",
+    'https://i.pinimg.com/originals/7b/2c/7b/7b2c7b881ceffb40fcbc7737c7c3f3e2.jpg',
+    'https://get.pxhere.com/photo/man-person-girl-woman-camera-photography-portrait-spring-red-lens-color-autumn-canon-romance-season-taking-photo-photograph-beauty-emotion-photo-shoot-portrait-photography-1169775.jpg',
+    'https://ogorodniku.com/uploads/posts/2023-01/1674192794_ogorodniku-com-p-peizazhi-prirodi-foto-1.jpg',
+    'https://urgi-stv.ru/wp-content/uploads/2/c/a/2ca07ff0390ccfd7fc4392f6c5416bbc.jpeg',
+    'https://img2.akspic.ru/attachments/originals/1/3/9/8/2/128931-flora-peyzash-okruzhayushchaya_sreda-gora-prirodnyj_landshaft-3840x2400.jpg',
+    'https://cdt-khibiny.ru/wp-content/uploads/2022/02/fotokross-molodye-kadry.jpg',
+    'https://images.hdqwalls.com/download/alberta-canada-4i-3840x2400.jpg',
+    'https://urgi-stv.ru/wp-content/uploads/e/3/3/e33601cff70ac629ed2e0c140171ac6a.jpeg',
+    'https://get.pxhere.com/photo/landscape-mountain-camera-photography-bicycle-dslr-vehicle-taking-photo-tripod-965509.jpg',
+    'http://vsegda-pomnim.com/uploads/posts/2022-04/1650916178_25-vsegda-pomnim-com-p-krasivie-peizazhi-gor-foto-32.jpg ',
+    'https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_564/MjAyMTQ0MzA0NjQ5NTQ0NzE2/christmas-gift-basket-ideas-for-friends-and-family.webp',
   ];
 
   return (

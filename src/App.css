@@ -1,4 +1,4 @@
-.App{
+.App {
   /* width: 414px;
   height: 896px;
   background-color: white;
@@ -9,16 +9,15 @@
   padding: 40px 20px;
 }
 
-.container{
+.container {
   margin-top: 50px;
-  display: grid;
-  gap: 12px;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: space-between;
+  column-count: 3;
+  column-gap: 1em;
+  gap: 6px;
 }
-*::-webkit-scrollbar{
+*::-webkit-scrollbar {
   display: none;
 }
-*{
+* {
   scrollbar-width: 0;
 }

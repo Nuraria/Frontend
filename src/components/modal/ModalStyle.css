@@ -1,0 +1,35 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.closed {
+    display: none;
+  }
+}
+
+.modal__content {
+  padding: 10px;
+  border-radius: 9999px;
+  background: white;
+  text-align: center;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  height: 90px;
+}
+
+.textArea {
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.modal__content img {
+  width: 30px;
+}
