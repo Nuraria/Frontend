@@ -1,15 +1,40 @@
-import React, { useState } from 'react';
-import './TwoAdmin.css';
-import { Link } from 'react-router-dom';
-import Arrow from '../../../assets/svg/Icon arrow back ios new.svg';
-import Uploadsvg from '../../../assets/svg/Icon upload.svg';
-import Button from '../../../components/Button/Button';
+import React, { useState } from "react";
+import "./TwoAdmin.css";
+import { Link, useNavigate } from "react-router-dom";
+import Arrow from "../../../assets/svg/Icon arrow back ios new.svg";
+import Uploadsvg from "../../../assets/svg/Icon upload.svg";
+import Button from "../../../components/Button/Button";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 export default function TwoAdmin() {
-  const [value, setValue] = useState('');
-  const [value2, setValue2] = useState('');
-  const [value3, setValue3] = useState('');
-
+  const [value, setValue] = useState("");
+  const [value2, setValue2] = useState("");
+  const [value3, setValue3] = useState("");
+  const [image, setImage] = useState(null);
+  const formData = new FormData();
+  formData.append("file", image);
+  formData.append("category_id", value);
+  const { data: category } = useQuery({
+    queryKey: ["getCategoryForAdmin"],
+    queryFn: async () => {
+      return await axios
+        .get("http://localhost:8000/category/")
+        .then(({ data }) => data);
+    },
+  });
+  const navigate = useNavigate();
+  const { mutate: addPhoto } = useMutation({
+    mutationKey: "addCollection",
+    mutationFn: () =>
+      axios
+        .post("http://localhost:8000/collection/", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then(() => navigate(-1)),
+  });
   return (
     <div>
       <Link to={-1}>
@@ -26,20 +51,28 @@ export default function TwoAdmin() {
 
         <div className="glav_text">
           <div className="group">
-            <div className="bottom_photo">
+            <label className="bottom_photo" htmlFor="file">
               <img src={Uploadsvg} alt="" className="bottom_photo_in" />
               <p>добавить фото</p>
-            </div>
+              <input
+                type="file"
+                name=""
+                id="file"
+                onChange={(e) => setImage(e.target.files[0])}
+                style={{ display: "none" }}
+              />
+            </label>
             <div className="padd">
               <p>Название, описание, прайс</p>
-
-              <input
-                type="text"
-                className="input_text"
-                value={value}
+              <select
                 onChange={(e) => setValue(e.target.value)}
-                placeholder="Название"
-              />
+                className="input_text"
+              >
+                <option>Выберите категорию</option>
+                {category?.map(({ category_name }, i) => (
+                  <option value={i}>{category_name}</option>
+                ))}
+              </select>
               <input
                 type="text"
                 className="input_text"
@@ -55,8 +88,9 @@ export default function TwoAdmin() {
             id=""
             cols="30"
             rows="10"
-            placeholder="Состав/описание"></textarea>
-          <Button />
+            placeholder="Состав/описание"
+          ></textarea>
+          <Button doneFunc={addPhoto} />
         </div>
       </div>
     </div>

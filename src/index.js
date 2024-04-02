@@ -10,11 +10,11 @@ import { store } from "./store/store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const queryClient = new QueryClient();
 root.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
+  <QueryClientProvider client={queryClient}>
+    <BrowserRouter>
+      <Provider store={store}>
         <App />
-      </QueryClientProvider>
-    </Provider>
-  </BrowserRouter>
+      </Provider>
+    </BrowserRouter>
+  </QueryClientProvider>
 );
