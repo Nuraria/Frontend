@@ -12,7 +12,7 @@ export default function Composition() {
     queryKey: "getComposition",
     queryFn: () =>
       axios
-        .get(`http://localhost:8000/collection/${id}`)
+        .get(`http://45.89.190.42:8000/collection/${id}`)
         .then(({ data }) => data),
   });
   const [y, setY] = useState(0);
@@ -26,7 +26,7 @@ export default function Composition() {
   const { mutate } = useMutation({
     mutationKey: "postPoint",
     mutationFn: () =>
-      axios.post("http://localhost:8000/product/", {
+      axios.post("http://45.89.190.42:8000/product/", {
         parent_collection: id,
         name: "string",
         description: "string",
@@ -38,14 +38,16 @@ export default function Composition() {
   const { data = [] } = useQuery({
     queryKey: "getCollectionWithPoint",
     queryFn: () =>
-      axios.get(`http://localhost:8000/product/${id}`).then(({ data }) => data),
+      axios
+        .get(`http://45.89.190.42:8000/product/${id}`)
+        .then(({ data }) => data),
   });
   console.log(data);
 
   const { mutate: deleteProduct } = useMutation({
     mutationKey: "delete",
     mutationFn: () =>
-      axios.delete(`http://localhost:8000/product/${productId}`),
+      axios.delete(`http://45.89.190.42:8000/product/${productId}`),
   });
   const [productId, setProductId] = useState(null);
   return (
@@ -102,7 +104,7 @@ export default function Composition() {
           )}
           <img
             id="id"
-            src={`http://localhost:8000/collection/img/${composition[0]?.img}`}
+            src={`http://45.89.190.42:8000/collection/img/${composition[0]?.img}`}
             alt=""
             className="container_photo"
           />

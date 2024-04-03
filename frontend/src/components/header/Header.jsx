@@ -21,7 +21,7 @@ function Header({ position, isAdmin }) {
     queryKey: ["getCategory"],
     queryFn: async () => {
       return await axios
-        .get("http://localhost:8000/category/")
+        .get("http://45.89.190.42:8000/category/")
         .then(({ data }) => data);
     },
   });

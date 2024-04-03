@@ -19,7 +19,7 @@ export default function TwoAdmin() {
     queryKey: ["getCategoryForAdmin"],
     queryFn: async () => {
       return await axios
-        .get("http://localhost:8000/category/")
+        .get("http://45.89.190.42:8000/category/")
         .then(({ data }) => data);
     },
   });
@@ -28,7 +28,7 @@ export default function TwoAdmin() {
     mutationKey: "addCollection",
     mutationFn: () =>
       axios
-        .post("http://localhost:8000/collection/", formData, {
+        .post("http://45.89.190.42:8000/collection/", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },

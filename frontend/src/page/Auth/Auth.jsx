@@ -13,7 +13,7 @@ const Auth = () => {
     mutationKey: "postUser",
     mutationFn: () =>
       axios
-        .post("http://localhost:8000/user/validate/", value)
+        .post("http://45.89.190.42:8000/user/validate/", value)
         .then(({ data }) => {
           localStorage.setItem("user", JSON.stringify(data[0]));
           return data;

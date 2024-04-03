@@ -19,7 +19,7 @@ export default function FirstAdmin({ http, deleteFunc }) {
     queryFn: () =>
       axios
         .get(
-          `http://localhost:8000/collection/${
+          `http://45.89.190.42:8000/collection/${
             categoryIdAdmin !== 0 ? `category/${categoryIdAdmin}` : ""
           }`
         )
@@ -34,12 +34,12 @@ export default function FirstAdmin({ http, deleteFunc }) {
     useMutation({
       mutationKey: "createCategory",
       mutationFn: async (body) => {
-        return await axios.post(`http://localhost:8000/category/`, body);
+        return await axios.post(`http://45.89.190.42:8000/category/`, body);
       },
       onSuccess: () =>
         queryClient.invalidateQueries({ queryKey: ["getCategory"] }),
     });
-    const categoryId = useSelector(state => state.category.categoriy)
+  const categoryId = useSelector((state) => state.category.categoriy);
 
   return (
     <>
@@ -76,7 +76,7 @@ export default function FirstAdmin({ http, deleteFunc }) {
           </Link>
           {collections?.map(({ img, id }) => (
             <Photo
-              url={`http://localhost:8000/collection/img/${img}`}
+              url={`http://45.89.190.42:8000/collection/img/${img}`}
               id={id}
               key={id}
             />

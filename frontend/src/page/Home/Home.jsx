@@ -12,7 +12,7 @@ export default function Home() {
     queryFn: () =>
       axios
         .get(
-          `http://localhost:8000/collection/${
+          `http://45.89.190.42:8000/collection/${
             categoryId !== 0 ? `category/${categoryId}` : ""
           }`
         )
@@ -24,7 +24,7 @@ export default function Home() {
       <div className="container">
         {collections?.map(({ img, id }) => (
           <Photo
-            url={`http://localhost:8000/collection/img/${img}`}
+            url={`http://45.89.190.42:8000/collection/img/${img}`}
             id={id}
             key={id}
           />
