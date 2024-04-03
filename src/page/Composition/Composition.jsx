@@ -41,6 +41,13 @@ export default function Composition() {
       axios.get(`http://localhost:8000/product/${id}`).then(({ data }) => data),
   });
   console.log(data);
+
+  const { mutate: deleteProduct } = useMutation({
+    mutationKey: "delete",
+    mutationFn: () =>
+      axios.delete(`http://localhost:8000/product/${productId}`),
+  });
+  const [productId, setProductId] = useState(null);
   return (
     <div>
       <Link to={-1}>
@@ -60,7 +67,7 @@ export default function Composition() {
           style={{ position: "relative" }}
           ref={ref}
         >
-          {data.map(({ id }) => (
+          {data.map(({ id, positiony, positionx }) => (
             <div
               id={id}
               style={{
@@ -68,13 +75,31 @@ export default function Composition() {
                 width: "20px",
                 height: "20px",
                 backgroundColor: "red",
+                top: positiony * ref.current?.offsetHeight,
+                left: positionx * ref.current?.offsetWidth,
+                transform: "translate(-50%, -50%)",
+                zIndex: 50,
+                borderRadius: "50%",
+              }}
+              onClick={() => setProductId(id)}
+            ></div>
+          ))}
+          {data.length <= 5 && (
+            <div
+              id={id}
+              style={{
+                position: "absolute",
+                width: "20px",
+                height: "20px",
+                backgroundColor: "blue",
                 top: y,
                 left: x,
                 transform: "translate(-50%, -50%)",
                 zIndex: 50,
+                borderRadius: "50%",
               }}
             ></div>
-          ))}
+          )}
           <img
             id="id"
             src={`http://localhost:8000/collection/img/${composition[0]?.img}`}
@@ -127,7 +152,7 @@ export default function Composition() {
               }
               placeholder="Состав/описание"
             ></textarea>
-            <Button doneFunc={mutate} />
+            <Button doneFunc={mutate} deleteFun={deleteProduct} />
           </div>
         )}
       </div>
